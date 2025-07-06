@@ -1,42 +1,126 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.header-container {
+  display: flex;
+  flex-direction: row;
+  padding: 5vh 0;
+  width: 100%;
+  justify-content: space-around;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes spin-infinite{
+  0%{
+    transform: rotateZ(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  100%{
+    transform: rotateZ(360deg);
+  }
+  0%{
+    transform: rotateZ(0);
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes logo-rotate {
+  0%{
+    transform: rotateZ(0deg);
+  }
+  100%{
+    transform: rotateZ(180deg);
   }
 }
 
-.card {
-  padding: 2em;
+.icon{
+  transition: 1s;
 }
 
-.read-the-docs {
-  color: #888;
+.header-component {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  left: 0;
+  height: 15vh;
+  background-color: black;
+  color: #F7F3F4;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.844);
+  font-family: "Gerhaus", "Arial", "Helvetica", sans-serif;
+  font-size: 1vw;
+}
+
+.header-item{
+  cursor: pointer;
+  transition: 1s;
+  font-weight: 700;
+  display: flex;
+  font-size: 1.3vw;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5vh;
+  column-gap: 1vw;
+  font-family: "Montserrat Bold", sans-serif;
+  .icon{
+    position: absolute;
+    top:72px;
+  }
+}
+.header-item.active{
+  .icon{
+    transform: rotate(180deg);
+  }
+}
+.header-item:hover{
+  color:blueviolet;
+}
+
+.header-logo-item {
+  display: flex;
+  flex-direction: row;
+  font-size: 3.5vw;
+  column-gap: 0.5vw;
+  align-items: center;
+  font-family: 'Montserrat Bold',sans-serif;
+  transition: 1s;
+  font-weight: 700;
+  cursor: pointer;
+}
+.header-logo-name{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.header-logo-item:hover{
+  color:blueviolet;
+  .icon{
+    animation: spin-infinite 1.5s infinite;
+  }
+}
+
+.header-list-items{
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  z-index: 11;
+  top:15vh;
+  background-color: black;
+  border-radius: 2px;
+  border-top: 1px solid blueviolet;
+  border-left: 1px solid blueviolet;
+  width: 10vw;
+  border-right: 1px solid blueviolet;
+  color: #F7F3F4
+}
+
+.header-list-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width:100%;
+  font-size: 1.1vw;
+  border-bottom: 1px solid blueviolet;
 }
