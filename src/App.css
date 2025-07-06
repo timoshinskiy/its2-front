@@ -1,7 +1,7 @@
 .header-container {
   display: flex;
   flex-direction: row;
-  padding: 5vh 0;
+  padding: 0;
   width: 100%;
   justify-content: space-around;
 }
@@ -27,7 +27,7 @@
 }
 
 .icon{
-  transition: 1s;
+  transition: 0.3s;
 }
 
 .header-component {
@@ -39,6 +39,7 @@
   align-items: center;
   left: 0;
   height: 15vh;
+  z-index: 13;
   background-color: black;
   color: #F7F3F4;
 }
@@ -55,15 +56,16 @@ body {
   font-weight: 700;
   display: flex;
   font-size: 1.3vw;
+  z-index: 10;
+  height: 15vh;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 5vh;
   column-gap: 1vw;
   font-family: "Montserrat Bold", sans-serif;
   .icon{
     position: absolute;
-    top:72px;
+    top:9.5vh;
   }
 }
 .header-item.active{
@@ -95,7 +97,7 @@ body {
 .header-logo-item:hover{
   color:blueviolet;
   .icon{
-    animation: spin-infinite 1.5s infinite;
+    animation: spin-infinite 5s infinite;
   }
 }
 
@@ -103,24 +105,25 @@ body {
   display: flex;
   position: fixed;
   flex-direction: column;
-  z-index: 11;
+  z-index: 15;
   top:15vh;
-  background-color: black;
   border-radius: 2px;
-  border-top: 1px solid blueviolet;
-  border-left: 1px solid blueviolet;
-  width: 10vw;
-  border-right: 1px solid blueviolet;
+  border-top: 1px solid linear-gradient(90deg,rgba(178, 10, 240, 1) 0%, rgba(127, 48, 217, 1) 50%, rgba(24, 81, 240, 1) 100%);
+  border-left: 1px solid linear-gradient(90deg,rgba(178, 10, 240, 1) 0%, rgba(127, 48, 217, 1) 50%, rgba(24, 81, 240, 1) 100%);
+  width: 20vw;
+  border-right: 1px solid linear-gradient(90deg,rgba(178, 10, 240, 1) 0%, rgba(127, 48, 217, 1) 50%, rgba(24, 81, 240, 1) 100%);
   color: #F7F3F4
 }
 
 .header-list-item{
+  background-color: black;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 2vh 0;
   width:100%;
   font-size: 1.1vw;
-  border-bottom: 1px solid blueviolet;
+  border-bottom: 1px linear-gradient(90deg,rgba(178, 10, 240, 1) 0%, rgba(127, 48, 217, 1) 61%, rgba(24, 81, 240, 1) 100%);;
 }
