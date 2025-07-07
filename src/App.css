@@ -6,6 +6,15 @@
   justify-content: space-around;
 }
 
+@keyframes bornOpacity{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
 @keyframes spin-infinite {
   0% {
     transform: rotateZ(0deg);
@@ -231,7 +240,7 @@ body::-webkit-scrollbar-thumb {
 .home-head-banner-text {
   display: flex;
   flex-direction: column;
-  margin-top: 10vh;
+  margin-top: 8vh;
   margin-left: 3vw;
   row-gap: 2vh;
   font-family: 'Gilroy-Medium', sans-serif;
@@ -239,7 +248,7 @@ body::-webkit-scrollbar-thumb {
 
 .home-head-banner-text h1 {
   width: 50vw;
-  font-size: 5vw;
+  font-size: 4.5vw;
   margin: 0;
 }
 
@@ -257,8 +266,28 @@ body::-webkit-scrollbar-thumb {
   width: 40vw;
 }
 
-.home-head-consult-button{
-  width: 30vw;
-  border: none;
+.home-head-buttons{
+  display: flex;
+  flex-direction: row;
+  column-gap: 2vw;
+}
+
+.home-head-button{
+  width: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid black;
+  background: none;
+  color: #F7F3F4;
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-weight: 600;
+  font-size: 1.2vw;
   padding: 2vw 5vw;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.home-head-button:hover{
+  color: blueviolet;
 }
