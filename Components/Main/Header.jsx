@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderListItems from './HeaderListItems';
 import { Icon } from '@iconify/react';
+import { Link, useLocation } from 'react-router';
 
 const Header = () => {
     const [openTab, setOpenTab] = useState(false);
@@ -13,13 +14,19 @@ const Header = () => {
         ],
         "About": [],
         "Others": [
-            {link: '/other-works', name: 'Доработки сайтов'},
-            {link: '/smm',name:'SMM-продвижение'}
+            { link: '/other-works', name: 'Доработки сайтов' },
+            { link: '/smm', name: 'SMM-продвижение' }
         ]
     }
 
+    // onMouseEnter={(e) => {
+    //                     setOpenTab(true);
+    //                     setSelectedTab("Development");
+    //                     setXPos(e.currentTarget.getBoundingClientRect().left - window.innerWidth*0.005)
+    //                 }}
     const [xPos, setXPos] = useState(null);
     const [selectedTab, setSelectedTab] = useState(null);
+    const curLocation = useLocation();
     return (
         <>
             {
@@ -31,47 +38,38 @@ const Header = () => {
                         <Icon className='icon' icon="bxs:up-arrow" width="50" height="50" />
                         <div className='header-logo-name'>IT<span>s</span></div>
                     </div>
-                    <div className={`header-item`} onMouseEnter={(e)=>{
-                        setOpenTab(false);
-                        setSelectedTab(null);
-                        setXPos(null);
-                    }}>Главная</div>
-                    <div onMouseEnter={(e) => {
-                        setOpenTab(true);
-                        setSelectedTab("Development");
-                        setXPos(e.currentTarget.getBoundingClientRect().left)
-                    }}
-                        className={`header-item ${selectedTab == "Development" ? 'active' : ''}`}>
-                        Разработка
-                        <Icon className='icon' icon="bxs:up-arrow" style={{transform: `rotate(${selectedTab==='Development'?'180deg':'0'})`}} width="2vw" height="2vw" />
-                    </div>
-                    <div className='header-item' onMouseEnter={(e)=>{
-                        setOpenTab(false);
-                        setSelectedTab(null);
-                        setXPos(null);
-                    }}>Продвижение</div>
-                    <div onMouseEnter={(e)=>{
-                        setOpenTab(true);
-                        setSelectedTab("Others");
-                        setXPos(e.currentTarget.getBoundingClientRect().left + window.innerWidth*0.01)
-                    }} className={`header-item ${selectedTab == 'Others' ? 'active' : ""}`}>
-                        Другие услуги
+                    <Link to={'/'} className={`header-item ${curLocation.pathname == '/' ? 'active' : ''}`}>
+                        Главная
                         <Icon className='icon' icon="bxs:up-arrow" width="2vw" height="2vw" />
-                    </div>
-                    <div onMouseEnter={(e)=>{
-                        setOpenTab(true);
-                        setSelectedTab("About");
-                        setXPos(e.currentTarget.getBoundingClientRect().left + window.innerWidth*0.02)
-                    }} className={`header-item ${selectedTab =='About' ? 'active':''}`}>
-                        О компании
+
+                    </Link>
+                    <Link to='/services' className={`header-item ${curLocation.pathname == "/services" || curLocation.pathname.includes('service') ? 'active' : ''}`}>
+                        Услуги
                         <Icon className='icon' icon="bxs:up-arrow" width="2vw" height="2vw" />
-                    </div>
-                    <div className='header-item'>Контакты</div>
-                    <div className='header-social-link'></div>
-                    <div className='header-social-link'></div>
+                    </Link>
+                    <Link to='/about' className={`header-item ${curLocation.pathname == '/about' ? 'active' : ""}`}>
+                        О нас
+                        <Icon className='icon' icon="bxs:up-arrow" width="2vw" height="2vw" />
+                    </Link>
+                    <Link to={'/contacts'} className={`header-item ${curLocation.pathname == '/contacts' ? 'active' : ''}`}>
+                        Контакты
+                        <Icon className='icon' icon="bxs:up-arrow" width="2vw" height="2vw" />
+                    </Link>
+                    <Link to={'/vacancies'} className={`header-item ${curLocation.pathname == '/vacancies' ? 'active' : ''}`}>
+                        Вакансии
+                        <Icon className='icon' icon="bxs:up-arrow" width="2vw" height="2vw" />
+                    </Link>
+
                     <div className='header-contacts'>
-                        <h4>+375297853825</h4>
-                        <h4>its-agency@outlook.com</h4>
+                        <div className='header-social-links'>
+                            <a href='https://instagram.com/its_belarus' target='_blank' title='Instagram ITs'><Icon className='header-social-link' icon="line-md:instagram" width="2.5vw" height="2.5vw" /></a>
+                            <a href='https://t.me/timoshinski' target='_blank' title='Manager ITs telegram'><Icon className='header-social-link' icon="gravity-ui:logo-telegram" width="2.5vw" height="2.5vw" /></a>
+                        </div>
+                        <div className='header-contacts-phones'>
+                            <h4>+375297853825</h4>
+                            <h4>its-agency@outlook.com</h4>
+                        </div>
+
                     </div>
                 </div>
             </div>

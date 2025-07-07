@@ -6,27 +6,31 @@
   justify-content: space-around;
 }
 
-@keyframes spin-infinite{
-  0%{
+@keyframes spin-infinite {
+  0% {
     transform: rotateZ(0deg);
   }
-  100%{
+
+  100% {
     transform: rotateZ(360deg);
   }
-  0%{
+
+  0% {
     transform: rotateZ(0);
   }
 }
+
 @keyframes logo-rotate {
-  0%{
+  0% {
     transform: rotateZ(0deg);
   }
-  100%{
+
+  100% {
     transform: rotateZ(180deg);
   }
 }
 
-.icon{
+.icon {
   transition: 0.3s;
 }
 
@@ -48,33 +52,64 @@ body {
   background-color: rgba(0, 0, 0, 0.844);
   font-family: "Gerhaus", "Arial", "Helvetica", sans-serif;
   font-size: 1vw;
+  color: #F7F3F4;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
 }
 
-.header-item{
+body::-webkit-scrollbar {
+  width: 0.5vw;
+  background-color: rgba(0, 0, 0, 0.844);
+
+}
+
+body::-webkit-scrollbar-track {
+  background-color: gray;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(98, 43, 226);
+  border-radius: 30px;
+}
+
+.header-item {
   cursor: pointer;
   transition: 1s;
+  text-decoration: none;
+  color: #F7F3F4;
   font-weight: 700;
   display: flex;
   font-size: 1.3vw;
   z-index: 10;
-  height: 15vh;
+  height: 10vh;
+  margin-top: 5vh;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   column-gap: 1vw;
   font-family: "Montserrat Bold", sans-serif;
-  .icon{
+
+  .icon {
     position: absolute;
-    top:9.5vh;
+    top: 9.5vh;
   }
 }
-.header-item.active{
-  .icon{
+
+.header-item.active {
+  .icon {
+    color: blueviolet;
+
     transform: rotate(180deg);
   }
 }
-.header-item:hover{
-  color:blueviolet;
+
+.header-item:hover {
+  color: blueviolet;
+
+  .icon {
+    transform: rotate(180deg);
+  }
 }
 
 .header-logo-item {
@@ -83,39 +118,43 @@ body {
   font-size: 3.5vw;
   column-gap: 0.5vw;
   align-items: center;
-  font-family: 'Montserrat Bold',sans-serif;
+  font-family: 'Montserrat Bold', sans-serif;
   transition: 1s;
   font-weight: 700;
-  cursor: pointer;
+  cursor: default;
 }
-.header-logo-name{
+
+.header-logo-name {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
 }
 
-.header-logo-item:hover{
-  color:blueviolet;
-  .icon{
+.header-logo-item:hover {
+  color: blueviolet;
+
+  .icon {
     animation: spin-infinite 5s infinite;
   }
 }
 
-.header-list-items{
+.header-list-items {
   display: flex;
   position: fixed;
   flex-direction: column;
   z-index: 15;
-  top:15vh;
+  top: 15vh;
+  border-image-source: linear-gradient(90deg, rgba(178, 10, 240, 1) 0%, rgba(127, 48, 217, 1) 50%, rgba(24, 81, 240, 1) 100%);
   border-radius: 2px;
-  border-top: 1px solid linear-gradient(90deg,rgba(178, 10, 240, 1) 0%, rgba(127, 48, 217, 1) 50%, rgba(24, 81, 240, 1) 100%);
-  border-left: 1px solid linear-gradient(90deg,rgba(178, 10, 240, 1) 0%, rgba(127, 48, 217, 1) 50%, rgba(24, 81, 240, 1) 100%);
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
   width: 20vw;
-  border-right: 1px solid linear-gradient(90deg,rgba(178, 10, 240, 1) 0%, rgba(127, 48, 217, 1) 50%, rgba(24, 81, 240, 1) 100%);
+  border-right: 1px solid transparent;
+  border-image-slice: 1;
   color: #F7F3F4
 }
 
-.header-list-item{
+.header-list-item {
   background-color: black;
   display: flex;
   flex-direction: row;
@@ -123,7 +162,103 @@ body {
   justify-content: center;
   cursor: pointer;
   padding: 2vh 0;
-  width:100%;
+  width: 100%;
   font-size: 1.1vw;
-  border-bottom: 1px linear-gradient(90deg,rgba(178, 10, 240, 1) 0%, rgba(127, 48, 217, 1) 61%, rgba(24, 81, 240, 1) 100%);;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(90deg, rgba(178, 10, 240, 1) 0%, rgba(127, 48, 217, 1) 50%, rgba(24, 81, 240, 1) 100%);
+  border-bottom: 1px solid transparent;
+}
+
+.header-social-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1vh;
+  column-gap: 1vw;
+}
+
+.header-social-links a {
+  color: #F7F3F4;
+}
+
+.header-social-link {
+  transition: 1s;
+}
+
+.header-social-link:hover {
+  color: blueviolet;
+}
+
+.header-contacts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  row-gap: 1vh;
+  column-gap: 1vw;
+}
+
+.header-contacts h4 {
+  margin: 0;
+  transition: 1s;
+}
+
+.header-contacts-phones h4:hover {
+  color: blueviolet
+}
+
+.header-contacts-phones {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3vh;
+  cursor: pointer;
+}
+
+.page {
+  margin-top: 17vh;
+}
+
+.page-content {
+  width: 80vw;
+  margin: 2vh 10vw;
+}
+
+.home-head-banner {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  height: 85vh;
+}
+
+.home-head-banner-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10vh;
+  margin-left: 3vw;
+  row-gap: 2vh;
+  font-family: 'Gilroy-Medium', sans-serif;
+}
+
+.home-head-banner-text h1 {
+  width: 50vw;
+  font-size: 5vw;
+  margin: 0;
+}
+
+.home-head-banner-text h2 {
+  margin: 0;
+  font-size: 4vw;
+  background: -webkit-linear-gradient(90deg, rgba(178, 10, 240, 1) 0%, rgba(127, 48, 217, 1) 50%, rgba(24, 81, 240, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-head-banner-text p {
+  margin: 0;
+  font-size: 2vw;
+  width: 40vw;
+}
+
+.home-head-consult-button{
+  width: 30vw;
+  border: none;
+  padding: 2vw 5vw;
 }
